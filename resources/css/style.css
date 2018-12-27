@@ -1,0 +1,663 @@
+/*------- #e67e22 - Naranđasta boja ----------------*/
+
+/*------------------------------------------------------------------------*/
+/* BASIC SETUP   */
+/*------------------------------------------------------------------------*/
+
+* { /*Prvo se rjesavamo svih padding-a i margina koje browser po defaultu pravi*/
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;  
+}
+
+html,
+body { /*Podesavamo boje za cijeli html dokument*/
+    background-color: #fff; /*bijela a i nismo je morali praviti jer je podrazumijevana*/
+    color: #555; /*siva koja je svjetlija, ovo je boja za tekst*/
+    font-family: 'Lato', 'Arial', sans-serif; /*Ova font familija je dodata u head zaglavlju, ako zbog konekcije bude onemogucena zamijenit ce je Arial a ako i njega ne bude onda bilo koji font iz sans-serif familije*/
+    font-weight: 300; /*debljina slova, i njih smo nabrojali u head link-u Lato familije*/
+    font-size: 20px; /*velicina karaktera*/
+    text-rendering: optimizeLegibility; /*Optimizirati ciljivost, to znaci da ce se nasi fontovi prikazivati na najbolji nacin*/
+    overflow-x: hidden;/*da se kompletan tekst po x osi vidi tj da ne izlazi iz screen-a pa da ga moramo scroll-ovat*/
+}
+
+.clearfix {zoom: 1}/*Cistimo float nakon sto smo ga definisali bilo gdje u ovom osnovnom podesavanju a klasu cemo staviti u meals-showcase div kojih ima dva jer oni su ti koji imaju float u sebi i zato ih cistimo iz njih.*/
+.clearfix:after {/*ova klasa cisti(clear) float nakon elementa*/
+    content: '.';
+    clear:both;
+    display:block;
+    height: 0;
+    visibility: hidden;
+}
+
+/*------------------------------------------------------------------------*/
+/* REUSABLE COMPONENTS */
+/*------------------------------------------------------------------------*/
+
+.row { /*Koristimo klasu row za sve redove koju smo ubacili preko grid.css fajla za respon. dizajn*/
+    max-width: 1140px; /*duzina svih redova ce biti max. 1140px i ovo je jedina vrijednost koja ce imati apsolut. vrijednost u px*/
+    margin:0 auto 0 auto; /*centriramo sve redove na stranici na skraceni nacin*/
+    
+}
+
+section { /*Ovdje def. whitespace*/
+    padding: 80px 0; /*80 gore i dole i 0 lijevo i desno*/
+}
+
+.box {
+    padding: 1%;
+}
+
+
+/*--------------HEADINGS--------------*/
+h1, h2, h3 { /*Zbog normalize.css fajla postoje neke margine za h1 pa ih moramo iskljuciti da slika bude preko cijelog ekrana*/
+
+    font-weight: 300;/*Tanjimo bold slova koja automatski doloaze sa h1 elem.*/
+    text-transform: uppercase;/*da sva slova budu velika jer je ljepse.*/
+    letter-spacing: 1px;
+   
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #fff;/*bijela boja za headline zbog tamne podloge*/
+    font-size: 240%;/*Apsolutna velicina iz html podesavanja je povecana za 20px i ako zelimo da je smanjimo automatski samo smanjimo px iz html-a i ovaj % ce opasti*/
+    word-spacing: 4px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 180%;
+    word-spacing: 2px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h3 {
+    font-size: 110%;
+    margin-bottom: 15px;
+}
+
+h2:after { /*Ovo je mala crvena linija koja se pojavljuje uvijek nakon h2 zaglavlja*/
+    display: block;/*preko cijele sirine definisane ce ici linija*/
+    height: 2px;/*linija ce biti visine 2px*/
+   background-color: #e67e22;
+    content: " "; /*Moramo ovo svojstvo navesti pa makar i sa praznim tekstom da bi korisitli psudo after klasu*/
+    width: 100px;/*sirina te linije ce biti 100px*/
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+/*--------------PARAGRAPHS-----------*/
+.long-copy {
+    line-height: 145%;/*Visina između linija*/
+    width:70%;/*zbog previse karaktera u jednoj liniji moramo smanjiti sirinu paragrafa ali sada on nece vise biti centriran*/
+    margin-left:15%;/*posto je ukupna duzna linije 100% ako po 15% dodijelmo lijevo i desno parag. ce biti u sredini*/
+    margin-right: 15%;
+}
+
+.box p {/*Selektiramo sve paragrafe u .box klasi div elemenata*/
+    line-height: 145%;
+    font-size: 90%;
+}
+
+/*--------------ICONS----------------*/
+.icon-big {
+    font-size: 350%;/*font-size mozemo koristiti za povecanje ikona*/
+    display: block;/*Prelama liniju u kojoj je slika, odnosno rezervise cijeli prostor kolone za sebe*/
+    color: #e67e22; /*Da obojimo iconu korisitmo svojsvo kao i za font -> color*/
+    margin-bottom: 10px;
+    
+}
+
+.icon-small {/*Ovo su ikone za sekciju Gradovi*/
+    display:inline-block;/*Da zauzmu sirinu samo svoje sirine u bloku da mozemo mi rucno da prosirujemo blok i da ne prelamaju tekst*/
+    width:30px;/*sirina bloka u kojem je ikona ce biti 30px*/
+    text-align: center;/*Ikone ce biti centrirane u bloku od 30px*/
+    color: #e67e22;/*boja ikona ce biti naranđasta*/
+    font-size: 120%;
+    margin-right: 10px;
+    
+    /*Secrets to align text and icons*/
+    margin-top: -5px;/*Pomjera icone prema gore tj oduzima prazan prostor sa vrha da izravnamo text sa ikonama tj gornje ivice*/
+    vertical-align: middle;/*da vertikalno poravnamo tekst i ikone*/
+    line-height: 120%;
+}
+
+/*-----------Generic LINKS --------------*/
+a:link,
+a:visited {
+    color: #e67e22; /*tekst linka je narandjasti*/
+    text-decoration: none;/*brisemo liniju ispod link-a*/
+    padding-bottom: 1px;/*odvajamo donju liniju link-a za 1px*/
+    border-bottom: 1px solid #e67e22;
+    -webkit-transition: border-bottom 0.2s, color 0.2s;
+    transition: border-bottom 0.2s, color 0.2s;
+    
+}
+
+a:hover,
+a:active {
+    color: #555;
+    border-bottom: 1px solid transparent;/*Kada predjemo misem preko link-a linija ce postati nevidljiva zbog transp.*/
+    
+}
+
+
+
+/*--------------BUTTONS--------------*/
+.btn:link,
+.btn:visited,
+input[type=submit] {/*normalno stanje linka i posjeceno ce biti isto tj normalno da se boja texta linka ne mijenja. : je pseudo klasa*/
+    display: inline-block;/*u istoj razini ce biti text sa okolnom linijom a block znaci kao da je box*/
+    padding: 10px 30px 10px 30px;
+    font-weight: 300;
+    text-decoration: none; 
+    
+    border-radius: 200px;
+    -webkit-transition: background-color 0.2s, color 0.2s, border 0.2s;
+    transition: background-color 0.2s, color 0.2s, border 0.2s;/*Mijenjanje boja nakon hover ili klik za 0.2s. Ovo je css3*/
+}
+
+
+
+.btn-full:link,
+.btn-full:visited,
+input[type=submit]{
+    background-color: #e67e22; /*flat UI color - boja za button u pozadini*/
+    border: 1px solid #e67e22 ; /*moramo dadati i ovjde border jer je u box modelu border + padding + content da bi velicina oba btn bila ista*/
+    color: #fff ;
+    margin-right: 15px;/*Da drugo dugme pomaknemo za 15px od prvog*/
+}
+.btn-ghost:link, .btn-ghost:visited {
+    border: 1px solid #e67e22 ;
+    color: #e67e22 ; /*flat narancasti tekst*/
+}
+
+.btn:hover,
+.btn:active,
+input[type=submit]:hover,
+input[type=submit]:active {
+    background-color: #cf6d17;
+}
+
+.btn-full:hover,
+.btn-full:active {
+    border: 1px solid #cf6d17 ;  /*border boja je ista kao i kod hover btn-a*/    
+}
+
+.btn-ghost:hover, .btn-ghost:active {
+    border: 1px solid #cf6d17 ;
+    color: #fff ; /*boja fonta je bijela*/
+}
+
+/*------------------------------------------------------------------------*/
+/* HEADER (sav kod za nas header ide ovdje) */
+/*------------------------------------------------------------------------*/
+
+header {
+    background-image:-webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7))/*potamnjujemo sliku*/, url(img/hero-min.jpg);
+    background-image:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7))/*potamnjujemo sliku*/, url(img/hero-min.jpg);/*Koristimo pozadinsku sliku i stavljamo je prvo u folder za pozadinske slike a odatle dobavljamo za header.*/
+    height: 100vh;/*da slika bude koliko je visina viewport-a*/
+    /*Posto je slika jako zumirana tako da je ne vidimo cijelu radimo sljedece: cover i center:*/
+    background-size: cover; /*da se vidi cijela*/
+    background-position: center; /*centriramo je*/
+    background-attachment: fixed;/*slika ostaje uvijek na istom mjestu kada scroll-ujemo ekran*/
+}
+
+.hero-text-box {
+    position:absolute;
+    width: 1140px;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);/*Prenosimo pola visine i sirine elem. gore i lijevo*/
+}
+
+.logo {
+    height: 100px;
+    width: auto;
+    float: left;/*pomakni sliku lijevo*/
+    margin-top: 20px;
+}
+
+.logo-black {
+    display: none;
+     height: 50px;
+    width: auto;
+    float: left;/*pomakni sliku lijevo*/
+    margin: 5px 0;
+    
+}/*ovo znaci da slika nece biti prikazana u normalnom stanju*/
+
+/* Main navigation */
+.main-nav{
+    float: right;/*Pomakni elem. desno*/
+    list-style: none;
+    margin-top: 55px;
+}
+
+.main-nav li {/*selektujemo sve elem. iz .main-nav liste*/
+    display: inline-block;/*Elem. ce biti jedan pokraj drugog u blokovima poput button-a*/
+    margin-left: 40px;/*svaki blok elem. ce imati 40px margine ulijevo od sebe da elem. ne budu zbijeni*/
+}
+
+.main-nav li a:link,
+.main-nav li a:visited {/*Ciljamo sve a elemente i kazemo da je ovo normalan link u svom osnovnom stanju uvijek prije klikanja i poslije posjecivanja*/
+    padding: 8px 0;/*top i bottom: 8px and left and right:0px*/
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%;   
+    border-bottom: 2px solid transparent;/*border mora postojati u osnovi ako zelimo da ga mijenjamo sa hover-om*/
+    -webkit-transition: border-bottom 0.2s;
+    transition: border-bottom 0.2s;/* css3 */
+}
+
+.main-nav li a:hover,
+.main-nav li a:active {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%;
+    border-bottom: 2px solid #e67e22;/*Narandjasta boja nakon hover-a*/
+}
+
+/* Mobilne navi */
+.mobile-nav-icon {/*stilizujemo mobilnu navigaciju*/
+    float: right;/*prebacujemo sadrzaj mobilne navig. tj. njen taster na desnu stranu*/
+    cursor: pointer;/*kada u a elem. nemamo svojstva href nece se pokazati ruka kao pokazivac pa moramo rucno da to napravimo*/
+    display: none;/*ikona je za sada nevidljiva tj. podrazumjevano*/
+}
+
+.mobile-nav-icon i {/*stilizujemo iconu za mob. navigaciju (resetke vertikalne)*/
+   font-size: 200%;
+    color: #fff;
+}
+
+
+
+/* Sticky navigation where we add some cool effect */
+.sticky {
+    position: fixed;/*navigacija ostaje na istom mjestu bez obzira na scroll-ovanje*/
+    top: 0;
+    left: 0;
+    width: 100%;/*da red za nav bude preko cijelog ekrana*/
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 2px #efefef;
+    z-index: 9999;/*najveca moguca vrijednost i znaci da ce ovaj nav biti uvijek iznad svakog elementa kada skroll-ujemo i nece biti niti jedan elem. iznad njega(preko njega) pa da bude providan*/
+}
+.sticky .main-nav{
+   
+    margin-top: 18px;
+}
+
+.sticky .main-nav li a:link,
+.sticky .main-nav li a:visited {/*Ciljamo sve a elemente i kazemo da je ovo normalan link u svom osnovnom stanju uvijek prije klikanja i poslije posjecivanja*/
+    padding: 16px 0;/*da narandjasta linija bude na donjem borderu navigacije*/
+    color: #555;   
+}
+
+.sticky .logo {display: none;}/*sakrij bijeli logo*/
+.sticky .logo-black { display: block; }/*crni logo ce se prilazati kao blok nece vise biti sakriven*/
+
+/*------------------------------------------------------------------------*/
+/*FEATURES */
+/*------------------------------------------------------------------------*/
+
+.section-features .long-copy {
+    margin-bottom: 30px;
+}
+
+
+/*------------------------------------------------------------------------*/
+/*MEALS */
+/*------------------------------------------------------------------------*/
+
+.section-meals {
+    padding:0;/*ovo ce pregaziti padding koji smo postavili za sve sekcije ali samo za ovu sekciju*/
+}
+
+.meals-showcase {/*lista ul*/
+    list-style: none;/*brisemo bullets-e iz li elemenata*/
+    width:100%;/*Pošto želimo da obije liste budu preko cijelog ekrana a ne sa centrirane. Znaci jedna lista od 4 elem. je preko ekrana*/
+}
+
+.meals-showcase li {/*stilizujemo stavke svake liste i njihovu sirinu*/
+    display: block;
+    width: 25%; /*Pošto je sirina svake liste 100% tj preko cijelog ekrana, onda 4 * 25 = 100%*/
+    float: left;/*Da sve slike budu poredna ulijevo u redu a ne ispod jedna druge*/
+}
+.meal-photo {/*stiliziramo kontejner za slike*/
+    width: 100%;/*Znaci da svaki figure elem. ima tacnu sirinu koliku ima i njegov roditelj sto je li element (25%) */
+    margin: 0;/*zato sto normalize.css fajl def neke margine za h1 iako smo def za * {}(cijeli) html 0px ovdje moramo pregaziti normalize.css*/
+    overflow: hidden;/*Da sakrijemo overflow kontejnera koji je se desio zbog transform:scale(1.15); iz same slike*/
+    background-color: #000;/*Posto je slika providna a pozadina sada crna slika ce biti tamnija*/
+}
+.meal-photo img {/*formatiramo samu sliku*/
+    opacity: 0.7;/*70% providnost slike i da bi smo je potamnili jer je podloga u kontejeru bijela pravimo crnu podlogu*/
+    width: 100%;/*ovo znaci da ce slika biti siroka tacno koliko i njen kontejner(roditelj) -> figure*/
+    height: auto;
+    -webkit-transform: scale(1.15);
+    transform: scale(1.15);/*slika ce sada biti veca od kontejera u kojem se nalazi tj desit ce se overflow kontejnera*/
+    -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
+    transition: opacity 0.5s, -webkit-transform 0.5s;
+    transition: transform 0.5s, opacity 0.5s;
+    transition: transform 0.5s, opacity 0.5s, -webkit-transform 0.5s;/*animacija*/
+}
+
+.meal-photo img:hover {/*Kada predjemo preko slike ona ce se smanjiti sa 115% na 100% kako je bilo prvobitno*/
+    -webkit-transform: scale(1.03);
+    transform: scale(1.03);
+    opacity: 1;/*vracanje slike da bude u normalnom stanju providnosti tj bez providnosti*/
+}
+
+/*------------------------------------------------------------------------*/
+/*HOW IT WORKS SECTION */
+/*------------------------------------------------------------------------*/
+
+.section-steps {/*cijela sekcija*/
+    background-color: #f4f4f4;/*vrlo suptilna siva boja*/
+}
+
+.step-box:first-child {/*prvo dijete .step-box a to je lijevi box*/
+    text-align: right;
+    padding-right: 3%; /*Koristimo % umjesto px zbog responsive fluid dizajna koji cemo kasnije napraviti*/
+    margin-top: 30px;
+}
+
+.step-box:last-child{
+    padding-left: 3%;
+    margin-top: 70px;
+}
+
+.app-screen {
+    width:40%;/*sav layout i slike ce biti u % zbog resp. fluid dizajna*/
+}
+
+.works-step { /*Svaki div sa ovom klasom*/
+    margin-bottom: 50px;
+}
+
+.works-step:last-of-type {
+    margin-bottom: 80px; /*Ovdje smo pregazili opci margin-bottom za klasu .works-step i znaci da ce zadnji div imati 80px a gornji 50px*/
+}
+
+.works-step div {/*div u kojem se nalazi broj koraka (1,2 ili 3)*/
+    color: #e67e22;
+    border: 2px solid #e67e22;
+    display: inline-block;
+    border-radius: 50%;/*da zaokruzimo border koji je inline-block, tj. preko svoje duzine a ne preko cijele sirine kolone*/
+    height:50px;
+    width:50px;
+    text-align: center;/*da centriramo broj unutar bordera*/
+    padding: 5px;
+    float: left;/*da broj i tekst budu jedan do drugog*/
+    font-size: 150%;/*da povecamo broj*/
+    margin-right: 25px;
+    
+}
+
+.btn-app:link,
+.btn-app:visited { /*brisemo bordere sa dva link-a sa slicicamo ios i androida*/
+    border: 0;
+}
+
+.btn-app img{
+    height: 50px;
+    width: auto;
+    margin-right: 10px;
+}
+
+/*------------------------------------------------------------------------*/
+/*Cities*/
+/*------------------------------------------------------------------------*/
+.box img{
+    width:100%;
+    height: auto;
+    margin-bottom: 15px;   
+}
+
+.city-feature { /*svaki red teksta u svakom divu svake kolone  ce imati donju marginu od 5px*/
+    margin-bottom: 5px;
+}
+
+/*------------------------------------------------------------------------*/
+/*TESTIMONIALS*/
+/*------------------------------------------------------------------------*/
+.section-testimonials {/*da pozadinska slika bude preko cijele sekcije*/
+    background-image:-webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url(img/back-customers-min.jpg);
+    background-image:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url(img/back-customers-min.jpg);
+    background-size: cover;/*da slika popuni cijelu sirinu i da se cijela vidi u potpunom izgledu*/
+    color: #fff; /* Stavljamo bijelu boju slova */
+    background-attachment: fixed;
+}
+
+blockquote {
+   padding: 2%;
+   font-style: italic;/*moremo ukljuciti italic za google font zato sto smo ukljucili 300i za google font u html zaglavlju*/ 
+   line-height: 145%;
+   position: relative;/*Ovo moramo uraditi da bi u dijete klasi :before funkcionisalo apsolutno pozicioniranje*/
+   margin-top: 40px;/*da odvojimo od crvene linije 40px*/
+}
+
+blockquote:before {
+    content: "\201C";/*Pravimo lijeve znake navoda koristeci stranicu za navodnike css-trics.com gdje smo kopirali code a content svojstvo je svojstvo u koje se smjestaju ovi code-ovi.*/
+    font-size: 400%;
+    display:block;/*da navodnici imaju zaseban blok*/
+    position: absolute;
+    top: -5px;/*da znake navodnika samo malo vise pomjerimo prema crvenoj liniji*/
+    left: -3px;/*da pomjerimo ulijevo u odnosu na tekst ispod*/
+}
+
+
+cite {
+    font-size: 90%;
+    margin-top:25px;
+    display: block;/*cite el. ce biti blokom odvojen od blockquote taga, jer on prelama red umjesto da koristimo br tag*/
+    
+}
+
+cite img {
+    height: 45px;
+    border-radius: 50px;/*Zaokruzujemo slikicu*/
+    margin-right: 10px;
+    vertical-align: middle; /*da text pokraj slikice bude u sredini po vertikali odnosno slika da bude.*/
+
+}
+
+/*------------------------------------------------------------------------*/
+/*SIGN UP AND PRICING PLANS*/
+/*------------------------------------------------------------------------*/
+
+.section-plans {
+    background-color: #f4f4f4;
+}
+
+.plan-box {/*Ovaj plan-box div smo stavili u kolonu col span-1-of-3 da bi mogli praviti proizvoljnu sirinu box-a unutar kolone*/
+    background-color: #fff;
+    border-radius: 5px; 
+    width:90%;/*Smanjili smo sirinu box unutar kolone na 90% a kolona je 100% siroka*/
+    margin-left: 5%;/*da centriramo box unutar kolone. Ako ga pomaknemo za 5% ostat ce 5% prostora.*/
+    
+    box-shadow: 0 4px 4px #e3e3e3;
+   
+}
+
+.plan-box div:first-child {
+    background-color: #fcfcfc;/*dodajemo suptilnu bijelu podlogu za prvi div koja se i ne primijeti*/
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.plan-box div:last-child {
+    text-align: center;/*Centriramo dugmad u trecem div-u(last-child div)*/
+    border: 0;/*brisemo liniju zadnjeg div-a u kojem je dugme koja odvaja 2 div od treceg*/
+}
+
+.plan-box div {/*gađamo sva tri div-a unutar box-a*/
+    padding:15px;/*svaki tekst u svakom div-u ce biti udaljen sa svih strana 15px od border-a svog div-a*/
+    border-bottom: 1px solid #e8e8e8;
+}
+    
+.plan-price {
+    font-size: 300%;
+    margin-bottom: 10px;
+    font-weight: 100;/*font weight 100 smo naveli u Lato externm css fajlu pa ga zato i mozemo koristiti*/
+    color: #e67e22;
+}
+
+.plan-price span {
+    font-size: 100%; /*Posto je span elem. dijete od elem. sa klasom .plan-price, njegov font-size ce biti procenat od 300% roditelja a ne od 20px kako je u opcem podesavanju namjesteno za svaki font-size*/
+    font-weight: 300;/*Posto span. el. nasljedjuje font-weight roditelja moramo eksplicitno naglasiti promijeniti font-weight*/
+}
+
+.plan-price-meal {
+    font-size: 80%;
+}
+
+.plan-box ul{
+    list-style: none;/*brisemo bullets-e iz liste*/
+}
+
+.plan-box ul li{
+    padding: 5px 0;/*Padding izmedju stavki liste*/
+}
+
+/*------------------------------------------------------------------------*/
+/* FORM */
+/*------------------------------------------------------------------------*/
+
+.contact-form {
+    width: 60%;/*Sirina forme ce biti 60% od ukupne sirine ekrana od 100%*/
+    margin: 0 auto;/*Ovo je majlaksi nacin da centriramo formu unutar njenog parent el. ali mogli smo i sa navodjenjm lijeve margine od 20%*/
+    
+}
+
+input[type=text],/*da ne budu svi inupt-i selektovani vec samo ovi sa tipovima text i email a ne i checkbox input*/
+input[type=email],
+select,
+textarea {
+        width: 100%;/*da sve kontrole popune u potpunosti sirinu svoje kolone tj svog parent-a*/
+        padding: 7px; /*da svaka kontrola bude od svog border-a sa svih strana udaljena 7px*/
+        border-radius: 3px;
+        border: 1px solid #ccc;
+}
+
+textarea {
+    height: 100px;
+}
+
+input[type=checkbox] {
+    margin: 10px 5px 10px 0;
+}
+
+
+
+/*------------------------------------------------------------------------*/
+/* FOOTER */
+/*------------------------------------------------------------------------*/
+
+footer {
+    background-color: #333;/*lijepa siva boja za footer*/
+    padding : 50px;/*sadrzaj unutar footer-a ce biti sa svih strana udaljen za 50px od kontejnera*/
+    font-size: 80%;
+}
+.footer-nav {
+    list-style: none;
+    float: left; /*Sve linkone pomjeramo ulijevo u istoj vertikalnoj ravni ravni uz lijevu ivicu*/
+}
+
+.social-nav {
+    list-style: none;
+    float: right;
+}
+
+.footer-nav li,
+.social-nav li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.social-nav li:last-child,
+.footer-nav li:last-child {
+    margin-right:0;
+}
+
+.footer-nav li a:link,
+.footer-nav li a:visited,
+.social-nav li a:link,
+.social-nav li a:visited { /*Ovako brisemo dekoracije podrazumjevane u svim stanjima*/
+    text-decoration: none;
+    border:0;/*brisemo liniju ispod linkova*/
+    color:#888;/*svijetlo siva boja u odnosu na podlogu*/
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+.footer-nav li a:hover,
+.footer-nav li a:active {
+    color: #ddd; /*svijetla boja kada predjemo misem*/
+    
+}
+
+.social-nav li a:link,
+.social-nav li a:visited { /*poveceavamo ikonice an 180%*/
+    font-size: 160%;
+}
+
+.ion-social-facebook,
+.ion-social-twitter, 
+.ion-social-googleplus, 
+.ion-social-instagram {
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+.ion-social-facebook:hover {/*Mijenjamo boju svake ikonice u podrazumjevanu boju socijalne mreze koju ikona predstavlja*/
+    color: #3b5998;
+    
+}
+.ion-social-twitter:hover {
+    color: #55acee;
+}
+.ion-social-googleplus:hover {
+    color: #dd4b39;
+}
+.ion-social-instagram:hover {
+    color:  #125688;
+}
+
+
+
+footer p {
+    color: #888;
+   
+    text-align: center;
+    margin-top: 20px;
+}
+
+/*------------------------------------------------------------------------*/
+/* Animacije */
+/*------------------------------------------------------------------------*/
+
+/*Prvo moramo tekst, da bi radila fadeIn animacija, uciniti nevidljivim:*/
+.js--wp-1,
+.js--wp-2,
+.js--wp-3 {/*Za sve waypoint-e koji ce biti fadeIn kada scroll-ujemo do njih tj kojima smo dali ovu klasu u script.js fajlu*/
+    opacity: 0;/*tekst je sada nevidljiv*/
+    animation-duration: 1s;
+}
+
+.js--wp-4 {
+    animation-duration: 1s;/*da ubrzamo animaciju*/
+}
+
+.js--wp-1.animated,
+.js--wp-2.animated,
+.js--wp-3.animated {/*Nismo razdvojili između ove dvije klase jer bi to znacilo da je animated unutar prve klase a ovako obije klase ima element i one nam sluze da vratimu vidljivost elementa na 1*/
+    opacity: 1;
+     animation-duration: 1s;
+}
+

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css"><!--normalizira one css stilove da izgledaju dosljedno u svakom browseru i ovaj css fajl sa strane mora biti prije naseg css-->
+        
+         <link rel="stylesheet" type="text/css" href="vendors/css/ionicons.min.css"><!--Za ikone-->
+        
+        <link rel="stylesheet" type="text/css" href="vendors/css/Grid.css"><!--Ovaj grid fajl moramo ukljuciti iznad nas css fajla-->
+        
+        <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+        
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet" type="text/css"><!-- Ovo je nasa tipografija i njeni fontovi: 100 300 300i 400. Google font je zapravo css fajl na internetu i nismo ga skinuli-->
+        
+        <link rel="stylesheet" type="text/css" href="vendors/css/animate.css"><!--CSS animacije-->
+        
+        <link rel="stylesheet" type="text/css" href="resources/css/queries.css">
+        
+        <title>Omnifood</title>    
+    
+        <!--Favicons-->
+        <link rel="apple-touch-icon" sizes="180x180" href="resources/favicons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" href="resources/favicons/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="resources/favicons/favicon-16x16.png" sizes="16x16">
+        <link rel="manifest" href="resources/favicons/manifest.json">
+        <link rel="mask-icon" href="resources/favicons/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="resources/favicons/favicon.ico">
+        <meta name="msapplication-config" content="resources/favicons/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </head>
+    
+    <body>
+        
+        <header ><!--Pravimo centralizovani kontejner gdje ce nas headline biti i za to koristimo div elem. i ovo je text box koji floatira iznad pozadinske (the hero image) slike. Ovaj box cemo centralizovati sa css-om-->
+            <nav><!--element za navigaciju i klasa za ljepljivu navigaciju za cool efekte-->
+                <div class="row"><!--da centriramo text za navigaciju-->
+                    <img src="resources/img/logo-white.png" alt="Omnifood logo" class="logo"><!--ubacujemo logo sliku u navigaciju-->
+                    <img src="resources/img/logo.png" alt="Omnifood logo" class="logo-black"><!--crni logo za sticky navigaciju-->
+                    <ul class="main-nav js--main-nav"><!--glavna navigacija-->
+                        <li><a href="#features">Food delivery</a></li><!--pogledaj code snippet za navigation scroll u script.js-->
+                        <li><a href="#steps">How it works</a></li>
+                        <li><a href="#cities">Our cities</a></li>
+                        <li><a href="#sign-up">Sign up</a></li>
+                    </ul>
+                    <a class="mobile-nav-icon js--nav-icon"><i class="ion-navicon-round"></i></a><!--taster za mobilnu navigaciju-->
+                </div>
+            </nav>
+            
+            <div class="hero-text-box">               
+                <h1>Goodbye junk food.<br> Hello super healthy meals.</h1>
+            <a class="btn btn-full js--scroll-to-plans" href="#">I'm hungry</a><!--Ova 2 link-a cemo stilizovati sa css-om-->
+            <a class="btn btn-ghost js--scroll-to-start" href="#">Show me more</a>
+            
+            </div>
+            
+            
+        </header>
+        
+        <section class="section-features js--section-features" id="features"><!--drugi dio sajta poslije zaglavlja-->
+            <div class="row"><!--da centriramo text-->
+                <h2>Get food fast &mdash; not fast food</h2><!--Ovo je titl-->
+                <p class="long-copy"><!--long znaci dugacak tekst a copy copyright text-->
+                    Hello, we're Omnifood, your new premium food delivery service. We know you're always busy. No time for cooking. So let us take care of that, we're really good at it, we promise!
+                </p>
+            </div>
+            
+            <div class="row js--wp-1"><!--pocinjemo sa feature-sima-->
+                <div class="col span-1-of-4 box"><!--Grid.css fajl pogledati--><!--Kolona 1-->
+                    <i class="ion-ios-infinite-outline icon-big"></i><!--Def. zasebnu klasu za sve ikone u ovim box-ovima icon-big-->
+                    <h3>Up to 365 days/year</h3><!--Naslov za kolonu-->
+                    <p>
+                        Never cook again! We really mean that. Our subscription plans include up to 365 days/year coverage. You can also choose to order more flexibly if that's your style.
+                    </p>
+                </div>
+                 <div class="col span-1-of-4 box"><!--Kolona 2-->
+                    <i class="ion-ios-stopwatch-outline icon-big"></i>
+                    <h3>Ready in 20 minutes</h3>
+                    <p>
+                        You're only twenty minutes away from your delicious and super healthy meals delivered right to your home. We work with the best chefs in each town to ensure that you're 100% happy.
+                    </p>
+                </div>
+                 <div class="col span-1-of-4 box"><!--Kolona 3--><!--Dodali smo i klasu .box da namjestimo padding ili sta vec-->
+                     <i class="ion-ios-nutrition-outline icon-big"></i>
+                    <h3>100% organic</h3>
+                    <p>
+                       All our vegetables are fresh, organic and local. Animals are raised without added hormones or antibiotics. Good for your health, the environment, and it also tastes better!
+                </div>
+                 <div class="col span-1-of-4 box"><!--Kolona 4-->
+                    <i class="ion-ios-cart-outline icon-big"></i>
+                    <h3>Order anything</h3>
+                    <p>
+                       We don't limit your creativity, which means you can order whatever you feel like. You can also choose from our menu containing over 100 delicious meals. It's up to you!
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section-meals"><!--treci dio sajta-->
+            <ul class="meals-showcase clearfix"><!--pravimo klasu da mozemo stilizovati sliku sa css-om-->
+                <li><!--unutar elem. liste mozemo staviti bilo sta a mi cemo elem. figure staviti za slike-->
+                    <figure class="meal-photo"><!--Kontejner za slike-->
+                        <img src="resources/img/1.jpg" alt="Korean bibimbap with egg and vegetables">
+                    </figure>
+                </li>
+                <li>
+                    <figure class="meal-photo">
+                        <img src="resources/img/2.jpg" alt="Simple italian pizza with cherry tomatoes">
+                    </figure>
+                </li>
+                <li>
+                    <figure class="meal-photo">
+                        <img src="resources/img/3.jpg" alt="Chicken breast steak with vegetables">
+                    </figure>
+                </li>
+                <li>
+                    <figure class="meal-photo">
+                        <img src="resources/img/4.jpg" alt="Autumn pumpkin soup">
+                    </figure>
+                </li>
+            </ul>
+            <!--Drugi ul lista ispod prve-->
+             <ul class="meals-showcase clearfix"><!---ovdje definisemo klasu clearfix za float-ove i ona ce sve float-ove nakon ul ocistiti u narednim djeci elementima-->
+                <li>
+                    <figure class="meal-photo">
+                        <img src="resources/img/5.jpg" alt="Paleo beef steak with vegetables">
+                    </figure>
+                </li>
+                <li>
+                    <figure class="meal-photo">
+                        <img src="resources/img/6.jpg" alt="Healthy baguette with egg and vegetables">
+                    </figure>
+                </li>
+                <li>
+                    <figure class="meal-photo">
+                        <img src="resources/img/7.jpg" alt="Burger with cheddar and bacon">
+                    </figure>
+                </li>
+                <li>
+                    <figure class="meal-photo">
+                        <img src="resources/img/8.jpg" alt="Granola with cherries and strawberries">
+                    </figure>
+                </li>
+            </ul>
+            
+        </section>
+        
+        <section class="section-steps" id="steps"><!-- Content for - How it works - section -->
+            
+            <div class="row"><!--jedna kolona koja je centrirana-->
+                <h2>How it works &mdash; Simple as 1, 2, 3</h2>
+            </div>
+            
+            <div class="row"><!--Ovdje cemo red podijeliti na dvije kolone i zato col span-1-of-2-->
+                
+                <div class="col span-1-of-2 step-box"><!-- i ovo je lijeva kolona u kojoj ce biti slika-->
+                    <img src="resources/img/app-iPhone.png" alt="Omnifood app on iphone" class="app-screen js--wp-2">
+                </div>
+                
+                <div class="col span-1-of-2 step-box"><!--desna koja ce imati tri div-a u sebi koji sadrze korake i opis-->
+                    <div class="works-step"><!--Prvi kontejner-->
+                        <div>1</div>
+                        <p>Choose the subscription plan that best fits your needs and sign up today.</p>
+                    </div>
+                    <div class="works-step"><!--Drugi kontejner-->
+                        <div>2</div>
+                        <p>Order your delicious meal using our mobile app or website. Or you can even call us!</p>
+                    </div>
+                    <div class="works-step"><!--Treci kontejner-->
+                        <div>3</div>
+                        <p>Enjoy your meal after less than 20 minutes. See you the next time!</p>
+                    </div>
+                    
+                    <a href="#" class="btn-app"><img src="resources/img/download-app.svg" alt="App Store Button"></a>
+                    <a href="#" class="btn-app"><img src="resources/img/download-app-android.png" alt="Play Store Button"></a>
+                </div>
+            </div>
+            
+        </section>
+        
+        <section class="section-cities" id="cities"><!--Odjeljak o gradovima ispod koraka-->
+            <div class="row">
+                <h2>We're currently in these cities</h2>
+            </div>
+            
+            <div class="row js--wp-3">
+                <div class="col span-1-of-4 box"><!--prva kolona sa lijeve strane-->
+                    
+                    <img src="resources/img/lisbon-3.jpg" alt="Lisbon">
+                    <h3>Lisbon</h3>
+                        <div class="city-feature">
+                            <i class="ion-ios-person icon-small"></i>
+                            1600+ happy eaters                        
+                        </div>
+                    
+                        <div class="city-feature">
+                            <i class="ion-ios-star icon-small"></i>
+                            60+ top chefs
+                        </div>
+                    
+                        <div class="city-feature">
+                            <i class="ion-social-twitter icon-small"></i>
+                            <a href="#">@omnifood_lx</a>
+                        </div>                   
+                 </div>
+                <div class="col span-1-of-4 box"><!--druga kolona-->
+                    
+                    <img src="resources/img/san-francisco.jpg" alt="San Francisko">
+                    <h3>San Francisko</h3>
+                        <div class="city-feature">
+                            <i class="ion-ios-person icon-small"></i>
+                            3700+ happy eaters                        
+                        </div>
+                    
+                        <div class="city-feature">
+                            <i class="ion-ios-star icon-small"></i>
+                            160+ top chefs
+                        </div>
+                    
+                        <div class="city-feature">
+                            <i class="ion-social-twitter icon-small"></i>
+                            <a href="#">@omnifood_sf</a>
+                        </div>                   
+                 </div>
+                <div class="col span-1-of-4 box"><!--treca kolona-->
+                    
+                    <img src="resources/img/berlin.jpg" alt="Berlin">
+                    <h3>Berlin</h3>
+                        <div class="city-feature">
+                            <i class="ion-ios-person icon-small"></i>
+                            2300+ happy eaters                        
+                        </div>
+                    
+                        <div class="city-feature">
+                            <i class="ion-ios-star icon-small"></i>
+                            110+ top chefs
+                        </div>
+                    
+                        <div class="city-feature">
+                            <i class="ion-social-twitter icon-small"></i>
+                            <a href="#">@omnifood_berlin</a>
+                        </div>                   
+                 </div>
+                <div class="col span-1-of-4 box"><!--cetvrta kolona-->
+                    
+                    <img src="resources/img/london.jpg" alt="London">
+                    <h3>London</h3>
+                        <div class="city-feature">
+                            <i class="ion-ios-person icon-small"></i>
+                            1200+ happy eaters                        
+                        </div>
+                    
+                        <div class="city-feature">
+                            <i class="ion-ios-star icon-small"></i>
+                            50+ top chefs
+                        </div>
+                    
+                        <div class="city-feature">
+                            <i class="ion-social-twitter icon-small"></i>
+                            <a href="#">@omnifood_london</a>
+                        </div>                   
+                 </div>
+            </div>
+        
+        </section>
+        
+        <section class="section-testimonials">
+            <div class="row">
+                <h2>Our customers can't live without us</h2>
+            </div>
+            <div class="row">
+                <div class="col span-1-of-3">
+                    <blockquote><!--Citat-->
+                        Omnifood is just awesome! I just launched a startup which leaves me with no time for cooking, so Omnifood is a life-saver. Now that I got used to it, I couldn't live without my daily meals!                        
+                    </blockquote>
+                    <cite><img src="resources/img/customer-1.jpg">Alberto Duncan</cite><!--Osoba koji citiramo-->
+                </div>
+                <div class="col span-1-of-3">
+                    <blockquote><!--Citat-->
+                       Inexpensive, healthy and great-tasting meals, delivered right to my home. We have lots of food delivery here in Lisbon, but no one comes even close to Omifood. Me and my family are so in love!                        
+                    </blockquote>
+                    <cite><img src="resources/img/customer-3.jpg">Joana Silva</cite><!--Osoba koji citiramo-->
+                </div>
+                <div class="col span-1-of-3">
+                    <blockquote><!--Citat-->
+                       I was looking for a quick and easy food delivery service in San Franciso. I tried a lot of them and ended up with Omnifood. Best food delivery service in the Bay Area. Keep up the great work!                     
+                    </blockquote>
+                      <cite><img src="resources/img/customer-3.jpg">Milton Chapman</cite><!--Osoba koji citiramo-->
+                </div>
+            </div>
+        </section>
+        
+        <section class="section-plans js--section-plans" id="sign-up"><!--Plan za placanje i Sign up-->
+            <div class="row">
+                <h2>Start eating healthy today</h2>
+            </div><!--Kraj prvog reda-->
+            
+            <div class="row">
+                
+                <div class="col span-1-of-3">
+                    <div class="plan-box js--wp-4"><!--Tri div-a cemo staviti u plan-box div koji smo napravili unutar kolone radi odr. razloga-->
+                        <div><!--Prvi div-->
+                            <h3>Premium</h3>
+                            <p class="plan-price">149$ <span>/ month</span></p>
+                            <p class="plan-price-meal">That's only 13.30$ per meal</p>
+                        </div>
+                        <div><!--Drugi div-->
+                            <ul>
+                                <li><i class="ion-ios-checkmark-empty icon-small"></i>1 meal every day</li> 
+                                <li><i class="ion-ios-checkmark-empty icon-small"></i>Order 24/7</li>
+                                <li><i class="ion-ios-checkmark-empty icon-small"></i>Access to newest creations</li>
+                                <li><i class="ion-ios-checkmark-empty icon-small"></i>Free delivery</li>      
+                            </ul>
+                        </div>
+                        <div><!--Treci div-->
+                            <a href="#" class="btn btn-full">Sign up</a>
+                        </div>
+                    </div>
+                
+                </div><!--enf of first column-->
+                <div class="col span-1-of-3">
+                    <div class="plan-box">
+                        <div><!--Prvi div-->
+                            <h3>Pro</h3>
+                            <p class="plan-price">$399 <span>/ month</span></p>
+                            <p class="plan-price-meal">That’s only 14.90$ per meal</p>
+                        </div>
+                        <div><!--Drugi div-->
+                            <ul>
+                                <li><i class="ion-ios-checkmark-empty icon-small"></i>1 meal 10 days/month</li> 
+                                <li><i class="ion-ios-checkmark-empty icon-small"></i>Order 24/7</li>
+                                <li><i class="ion-ios-checkmark-empty icon-small"></i>Access to newest creations</li>
+                                <li><i class="ion-ios-checkmark-empty icon-small"></i>Free delivery</li>      
+                            </ul>
+                        </div>
+                        <div><!--Treci div-->
+                            <a href="#" class="btn btn-ghost">Sign up</a>
+                        </div>
+                    </div>
+                
+                </div><!--enf of second column-->
+                <div class="col span-1-of-3">
+                    <div class="plan-box">
+                        <div><!--Prvi div-->
+                            <h3>Starter</h3>
+                            <p class="plan-price">19$ <span>/ month</span></p>
+                            <p class="plan-price-meal"> &nbsp; </p><!--Da napravimo i oznacimo da je p el. prazan, tj. kao da ima tekst-->
+                        </div>
+                        <div><!--Drugi div-->
+                            <ul>
+                                <li><i class="ion-ios-checkmark-empty icon-small"></i>1 meal</li> 
+                                <li><i class="ion-ios-checkmark-empty icon-small"></i>Order from 8 am to 12 pm</li>
+                                <li><i class="ion-ios-close-empty icon-small"></i></li>
+                                <li><i class="ion-ios-checkmark-empty icon-small"></i>Free delivery</li>      
+                            </ul>
+                        </div>
+                        <div><!--Treci div-->
+                            <a href="#" class="btn btn-ghost">Sign up</a>
+                        </div>
+                    </div>
+                
+                </div><!-- enf of third column -->
+                
+            </div><!--Kraj drugog reda sa tri kolone-->
+            
+        </section>
+        
+        <section class="section-form"><!--Predzadnja sekcija-->
+            <div class="row">
+                <h2>We're happy to hear from you</h2>
+            </div>
+            <div class="row"><!--Drugi red u kojem ce biti sve input kontrole za form-u-->
+                <form method="post" action="#" class="contact-form"><!--Kontakt forma ciji ce svaki input el. imati svoj red-->
+                    <div class="row"><!--Red za ime-->
+                        <div class="col span-1-of-3"><!--Napisati labelu za ime-->
+                            <label for="name">Name</label>
+                        </div>
+                        <div class="col span-2-of-3"><!--druga kolona ce biti siroka kao 2 od tri kolone za unos imena-->
+                            <input type="text" name="name" id="name" placeholder="Your name" required>
+                        </div>
+                    </div><!--Kraj reda za ime-->
+                    <div class="row"><!--Red za email-->
+                        <div class="col span-1-of-3">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="email" name="email" id="email" placeholder="Your email" required>
+                        </div>
+                    </div><!--Kraj reda za email-->
+                    <div class="row"><!--Red za find us-->
+                        <div class="col span-1-of-3"><!--Napisati labelu za How did you find us?-->
+                            <label for="find-us">How did you find us?</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <select name="find-us" id="find-us"><!--Padajuci meni sa opcijama-->
+                                <option value="friends" selected>Friends</option><!--ova value vrijednost ce biti posata skriptu koja obr. formu-->
+                                <option value="search">Search engine</option>
+                                <option value="ad">Advertisement</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div><!--Kraj reda za find us-->
+                    
+                    <div class="row"><!--Red za newsletter-->
+                        <div class="col span-1-of-3">
+                            <label>Newsletter?</label>
+                        </div>
+                        <div class="col span-2-of-3"><!--druga kolona ce biti siroka kao 2 od tri kolone za unos imena-->
+                            <input type="checkbox" name="news" id="news" checked> Yes, please!<!--box je unaprijed checkiran-->
+                        </div>
+                    </div>
+                    
+                     <div class="row"><!--Red za poruku-->
+                        <div class="col span-1-of-3">
+                            <label>Drop us a line</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <textarea name="message" placeholder="Your message"></textarea>                
+                        </div>
+                         
+                    </div><!--Kraj reda za poruku-->
+                    
+                      <div class="row"><!--Red za button-->
+                        <div class="col span-1-of-3">
+                            <label>&nbsp;</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="submit" value="Send it!">
+                        </div>
+                    </div><!--Kraj reda za button-->
+                </form>
+            </div>
+        </section> <!--Kraj predzadnje sekcije za formu-->
+        
+        <footer>
+            <div class="row">
+                <div class="col span-1-of-2"><!--Kolona za navigaciju o nama i sl.-->
+                    <ul class="footer-nav">
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">iOS App</a></li>
+                        <li><a href="#">Android App</a></li>
+                        
+                    </ul>
+                </div><!--Kraj o nama i sl.-->
+                
+                <div class="col span-1-of-2"><!--Kolona za navigaciju ka socijalnim mrezama-->
+                    <ul class="social-nav">
+                        <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+                        <li><a href="#"><i class="ion-social-twitter"></i></a></li>
+                        <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
+                        <li><a href="#"><i class="ion-social-instagram"></i></a></li>
+                    </ul>
+                </div><!--Kraj socijalne mreze-->
+            </div>
+            <div class="row"><!--drugi red za copyright-->
+                <p>
+                    Copyright &copy; 2018 by Omnifood. All rights reserved.
+                </p>
+            </div>
+        </footer>
+        
+        
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><!--Ukljucivanje jQuery biblioteke-->
+    <script src="resources/js/script.js"></script>
+    <script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+    <script src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="vendors/js/jquery.waypoints.min.js"></script><!--Za okidanje funkc. kada scroll-ujemo kad elementu-->
+    <script src="//cdn.jsdelivr.net/selectivizr/1.0.3b/selectivizr.min.js"></script><!--da css3 pseudoklase vrijede i ia IE6,7-->
+        
+    </body>
+    
+    
+</html>
+
